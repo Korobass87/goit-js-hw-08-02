@@ -1,9 +1,10 @@
+import throttle from "lodash.throttle";
+
 const mail = document.querySelector('.feedback-form input')
 const textArea = document.querySelector('.feedback-form textarea')
 const form = document.querySelector('.feedback-form')
-import throttle from "lodash.throttle";
 const value = {}
-let parseValue = JSON.parse(localStorage.getItem("feedback-form-state"))
+const parseValue = JSON.parse(localStorage.getItem("feedback-form-state"))
 
 
 if (localStorage.getItem("feedback-form-state")) {
@@ -15,7 +16,7 @@ if (localStorage.getItem("feedback-form-state")) {
 form.addEventListener('submit', formSubmit)
 form.addEventListener('input', throttle(textInput, 500) )
 
-// textReturn()
+
 
 function formSubmit(event) {
     event.preventDefault()
