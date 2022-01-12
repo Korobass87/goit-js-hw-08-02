@@ -569,7 +569,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const mail = document.querySelector('.feedback-form input');
 const textArea = document.querySelector('.feedback-form textarea');
 const form = document.querySelector('.feedback-form');
-const value = {};
+let value = {};
+
+if (localStorage.getItem("feedback-form-state")) {
+  value = JSON.parse(localStorage.getItem("feedback-form-state"));
+}
+
 const parseValue = JSON.parse(localStorage.getItem("feedback-form-state"));
 
 if (localStorage.getItem("feedback-form-state")) {
