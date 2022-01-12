@@ -573,8 +573,13 @@ const value = {};
 const parseValue = JSON.parse(localStorage.getItem("feedback-form-state"));
 
 if (localStorage.getItem("feedback-form-state")) {
-  mail.value = parseValue.email;
-  textArea.value = parseValue.message;
+  if (parseValue.email) {
+    mail.value = parseValue.email;
+  }
+
+  if (parseValue.message) {
+    textArea.value = parseValue.message;
+  }
 }
 
 form.addEventListener('submit', formSubmit);
