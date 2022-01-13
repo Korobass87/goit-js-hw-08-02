@@ -591,14 +591,18 @@ form.addEventListener('input', (0, _lodash.default)(textInput, 500));
 
 function formSubmit(event) {
   event.preventDefault();
-  console.log("enter submit");
+
+  if (localStorage.getItem("feedback-form-state")) {
+    console.log(`Email:${mail.value}`);
+    console.log(`Message:${textArea.value}`);
+  }
+
   event.currentTarget.reset();
   localStorage.removeItem("feedback-form-state");
 }
 
 function textInput(event) {
   value[event.target.name] = event.target.value;
-  console.log(value);
   const localValue = JSON.stringify(value);
   localStorage.setItem("feedback-form-state", localValue);
 }
@@ -630,7 +634,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61505" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59857" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -24,14 +24,19 @@ form.addEventListener('input', throttle(textInput, 500) )
 
 function formSubmit(event) {
     event.preventDefault()
-    console.log("enter submit")
+    if (localStorage.getItem("feedback-form-state")) { 
+        console.log(`Email:${mail.value}`);
+        console.log(`Message:${textArea.value}`);
+    }
+   
+    
     event.currentTarget.reset()
     localStorage.removeItem("feedback-form-state")
+    
 }
 
 function textInput(event) {
     value[event.target.name] = event.target.value
-    console.log(value)
     const localValue = JSON.stringify(value)
     localStorage.setItem("feedback-form-state", localValue)
     
