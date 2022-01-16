@@ -593,8 +593,10 @@ function formSubmit(event) {
   event.preventDefault();
 
   if (localStorage.getItem("feedback-form-state")) {
-    console.log(`Email:${mail.value}`);
-    console.log(`Message:${textArea.value}`);
+    const SubValue = {};
+    SubValue[mail.name] = mail.value;
+    SubValue[textArea.name] = textArea.value;
+    console.log(SubValue);
   }
 
   event.currentTarget.reset();

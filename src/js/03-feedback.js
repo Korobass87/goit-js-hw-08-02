@@ -25,8 +25,11 @@ form.addEventListener('input', throttle(textInput, 500) )
 function formSubmit(event) {
     event.preventDefault()
     if (localStorage.getItem("feedback-form-state")) { 
-        console.log(`Email:${mail.value}`);
-        console.log(`Message:${textArea.value}`);
+        const SubValue = {}
+        SubValue.[mail.name] = mail.value
+        SubValue.[textArea.name] = textArea.value
+        console.log(SubValue)
+        
     }
    
     
@@ -41,4 +44,6 @@ function textInput(event) {
     localStorage.setItem("feedback-form-state", localValue)
     
 }
+
+
 
